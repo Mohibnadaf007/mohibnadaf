@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohib Nadaf – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f4ff; --surface:#ffffff; --text:#1b1736; --muted:#5b5680; --line:#ddd8f5; --glow:#d9d0ff;
+  --violet:#6b4cf0; --teal:#0e9488; --amber:#f5a524; --pink:#e8336f; --amber-text:#2a1c00;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#14112a; --surface:#1e1a3c; --text:#f1eefc; --muted:#a9a3cc; --line:#2d2858; --glow:#2a2160; --violet:#7d63ff; --teal:#17b5a6; --pink:#ff5d8f; color-scheme:dark;}
+}
+:root[data-theme="dark"]{--bg:#14112a; --surface:#1e1a3c; --text:#f1eefc; --muted:#a9a3cc; --line:#2d2858; --glow:#2a2160; --violet:#7d63ff; --teal:#17b5a6; --pink:#ff5d8f; color-scheme:dark;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.65 "Instrument Sans",system-ui,sans-serif;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,var(--glow),transparent 70%);background-repeat:no-repeat}
+.wrap{max-width:900px;margin:0 auto;padding:0 1.25rem 4rem}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0;line-height:1.05}
+h1{font-weight:800;font-size:clamp(3rem,11vw,6.5rem);letter-spacing:-.04em;padding-top:4.5rem}
+.lead{max-width:36ch;font-size:1.3rem;line-height:1.5;color:var(--muted);margin:1.25rem 0 1.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{font:600 1rem "Instrument Sans",system-ui,sans-serif;padding:.75rem 1.3rem;border-radius:999px;text-decoration:none;border:2px solid var(--violet);color:var(--violet)}
+.btn.fill{background:var(--violet);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* timeline */
+.tl{margin-top:3.5rem;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.1rem 1rem 1rem 4.4rem;overflow:hidden}
+.area{position:relative}
+.ruler{height:22px;margin-bottom:10px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);
+  background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 5%) bottom/100% 7px no-repeat}
+.lane{position:relative;height:46px;margin-bottom:8px}
+.lane::before{content:attr(data-label);position:absolute;right:calc(100% + .7rem);top:0;height:100%;display:flex;align-items:center;font-size:.72rem;font-weight:600;color:var(--muted)}
+.clip{position:absolute;top:0;bottom:0;border-radius:9px;display:flex;align-items:center;padding:0 .8rem;font:800 1rem "Bricolage Grotesque",system-ui,sans-serif;color:#fff;white-space:nowrap;overflow:hidden}
+.c1{background:var(--violet)} .c2{background:var(--teal)} .c3{background:var(--amber);color:var(--amber-text)}
+.c4{background:var(--pink);background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 3px,transparent 3px 8px)}
+.playhead{position:absolute;top:-4px;bottom:0;left:0;width:2px;background:var(--pink);animation:sweep 3.4s ease-in-out .5s both;pointer-events:none}
+.playhead::before{content:"";position:absolute;top:0;left:-5px;border:6px solid transparent;border-top-color:var(--pink);border-bottom:0}
+@keyframes sweep{from{left:0;opacity:1}88%{opacity:1}to{left:100%;opacity:0}}
+
+section{padding-top:4.5rem}
+h2{font-weight:800;font-size:2.1rem;letter-spacing:-.03em;margin-bottom:1rem}
+p{max-width:62ch;margin:0 0 1rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--violet);border-radius:14px;padding:1.2rem}
+.card:nth-child(2){border-top-color:var(--teal)} .card:nth-child(3){border-top-color:var(--pink)}
+.card h3{font-size:1.25rem;margin-bottom:.5rem}
+.card p{color:var(--muted);margin:0 0 .9rem;font-size:1rem}
+.chip{display:inline-block;font-size:.8rem;font-weight:600;padding:.15rem .65rem;border-radius:999px;background:var(--line);color:var(--text);margin:0 .35rem .35rem 0}
+.status{color:var(--pink);background:transparent;border:1.5px solid var(--pink)}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:2rem 1.5rem}
+.mail{font:800 clamp(1.2rem,4.6vw,2rem) "Bricolage Grotesque",system-ui,sans-serif;color:var(--violet);overflow-wrap:anywhere}
+footer{margin-top:3rem;color:var(--muted);font-size:.95rem}
+a{color:var(--violet)}
+@media (prefers-reduced-motion:reduce){.playhead{animation:none;opacity:0}.btn:hover{transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>Mohib Nadaf</h1>
+    <p class="lead">Information Technology student who writes code in C, C++ and Python, and cuts video for fun.</p>
+    <div class="btns">
+      <a class="btn fill" href="#projects">See my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+    <div class="tl" role="img" aria-label="A video editing timeline showing my skills: C, C++, Python and video editing">
+      <div class="area">
+        <div class="ruler"><span>0:00</span><span>0:10</span><span>0:20</span><span>0:30</span><span>0:40</span></div>
+        <div class="lane" data-label="Code">
+          <div class="clip c1" style="left:0;width:22%">C</div>
+          <div class="clip c2" style="left:24%;width:30%">C++</div>
+          <div class="clip c3" style="left:56%;width:40%">Python</div>
+        </div>
+        <div class="lane" data-label="Edit">
+          <div class="clip c4" style="left:8%;width:70%">Video editing</div>
+        </div>
+        <div class="playhead"></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About me</h2>
+    <p>I’m an Information Technology student at PVG College of Engineering. I enjoy programming and solving problems with code.</p>
+    <p>Outside class, I enjoy video editing.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Video clip automation tool</h3>
+        <p>A script that trims, merges and captions clips automatically.</p>
+        <span class="chip status">Planned</span><span class="chip">Python</span>
+      </article>
+      <article class="card">
+        <h3>Management system</h3>
+        <p>A library or hostel system with issue, return and search features.</p>
+        <span class="chip status">Planned</span><span class="chip">C++</span>
+      </article>
+      <article class="card">
+        <h3>Expense tracker</h3>
+        <p>Log spending, see monthly totals and export to CSV.</p>
+        <span class="chip status">Planned</span><span class="chip">Python</span>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Contact</h2>
+      <p>The best way to reach me is by email.</p>
+      <p><a class="mail" href="mailto:mohibnadaf10@gmail.com">mohibnadaf10@gmail.com</a></p>
+      <div class="btns"><a class="btn fill" href="https://www.linkedin.com/in/mohib-nadaf-85ba10384" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </section>
+
+  <footer>© 2026 Mohib Nadaf</footer>
+</main>
+</body>
+</html>
